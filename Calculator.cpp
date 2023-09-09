@@ -30,7 +30,8 @@ int main(){
 				else
 					cout<<"Not Valid!";
 					break;
-		
+		default:
+			cout<<"Not Valid Operation!"<<endl;
 	}
 	
 	
