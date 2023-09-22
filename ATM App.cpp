@@ -2,40 +2,46 @@
 using namespace std;
 
 void showMenu(){
-    cout<<"**********Menu**********\n";
-    cout<<"1.Check balance\n";
-    cout<<"2.Deposit\n";
-    cout<<"3.Withdraw\n";
-    cout<<"4.Exit\n";
-    cout<<"************************\n";
+    cout<<"********Menu********"<<endl;
+    cout<<"1. Check Blance"<<endl;
+    cout<<"2. Deposite"<<endl;
+    cout<<"3. Withdraw"<<endl;
+    cout<<"4. Exit"<<endl;
+    cout<<"********************"<<endl;
 }
-
 int main() {
-    //Check balance, deposit, withdraw, show menu
-    int option, balance=500, depositAmount, withdrawAmount;
+    int ch,balance = 500, depositAmount, withdrawAmount;
+    
     do{
-    showMenu();
-    cout<<"Choice: ";
-    cin>>option;
-    system("cls");
-    switch(option){
+        showMenu();
+        
+        cout << "Choice: ";
+        cin>>ch;
+        switch(ch){
         case 1:
-            cout<<"Balance is $"<<balance<<"."<<endl;break;
+            cout<<"Balance is $"<< balance <<"."<<endl;
+            break;
         case 2:
-            cout<<"Deposit amount: ";
+            cout<<"Deposit Amount: $";
             cin>>depositAmount;
             balance += depositAmount;
+            cout<<"Amount deposited successfully."<<endl;
             break;
         case 3:
-            cout<<"Withdraw amount: ";
+            cout<<"Withdraw Amount: $";
             cin>>withdrawAmount;
-            if(withdrawAmount <= balance)
+            if(withdrawAmount <= balance){
                 balance -= withdrawAmount;
+                cout<<"Amount withdrawn successfully."<<endl;
+                if(balance == 0)
+                    cout<<"Balance is ZERO now!!!!!"<<endl;
+            }
             else
-                cout<<"Not Enough Money!"<<endl;
+                cout<<"Not Enough!!"<<endl;
             break;
+        }
     }
-    }while(option != 4);
-    
+    while(ch != 4);
+
     return 0;
 }
