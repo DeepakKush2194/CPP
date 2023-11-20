@@ -8,6 +8,7 @@ private:// Access Specifiers
 	list<string> PublishedVideoTitles;
 protected:
 	string OwnerName;
+	int ContentQuality;
 public: // Access Specifiers
 	YouTubeChannel(string name, string ownername) { //Constructor, have no return-type
 		Name = name;
@@ -33,27 +34,51 @@ public: // Access Specifiers
 	void PublishVideo(string Titles) { // METHOD
 		PublishedVideoTitles.push_back(Titles);
 	}
+	void CheckAnalytics() {
+		if (ContentQuality < 5)
+			cout << Name << " has bad quality content." << endl;
+		else
+			cout << Name << " has great content." << endl;
+	}
 };
 class CookingYouTubeChannel :public YouTubeChannel { // Derived or Child Class
 public:
 	CookingYouTubeChannel(string name, string ownername) :YouTubeChannel(name, ownername) {
 
 	}
-	void Desc() {
-		cout <<"Description"<<endl<< OwnerName << " is trying to make new recepies." << endl;
+	void Practice() {
+		cout <<"Description"<<endl<< OwnerName << " is learning to make recepies and experimenting with spices...." << endl;
+		ContentQuality++;
+	}
+};
+// Polymorphism
+class SingingYouTubeChannel :public YouTubeChannel { // Derived or Child Class
+public:
+	SingingYouTubeChannel(string name, string ownername) :YouTubeChannel(name, ownername) {
+
+	}
+	void Practice() {
+		cout <<"Description"<<endl<< OwnerName << " is learning, taking classes and loves to dance....." << endl;
+		ContentQuality++;
 	}
 };
 
 int main() {
 	CookingYouTubeChannel CookingChannel("Amy's Kitchen", "Amy");
-	CookingChannel.Subscribe();
-	CookingChannel.Subscribe();
-	CookingChannel.Subscribe();
-	CookingChannel.PublishVideo("Apple Pie");
-	CookingChannel.PublishVideo("Chocolate Cake");
-	CookingChannel.Desc();
-	CookingChannel.GetInfo();
+	SingingYouTubeChannel singingytChannel("JohnSings", "John");
+	CookingChannel.Practice();
 
+	singingytChannel.Practice();
+	singingytChannel.Practice();
+	singingytChannel.Practice();
+	singingytChannel.Practice();
+	singingytChannel.Practice();
+
+	YouTubeChannel* yt1 = &CookingChannel;
+	YouTubeChannel* yt2 = &singingytChannel;
+
+	yt1->CheckAnalytics();
+	yt2->CheckAnalytics();
 
 	system("pause>0");
 }
