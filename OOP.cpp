@@ -1,19 +1,19 @@
 #include <iostream>
 #include <list>
 using namespace std;
-class YouTubeChannel {
-private:
+class YouTubeChannel {// CLASS - PARENT CLASS
+private:// Access Specifiers
 	string Name;
 	string OwnerName;
 	int SubscribersCount;
 	list<string> PublishedVideoTitles;
-public:
-	YouTubeChannel(string name, string ownername) {
+public: // Access Specifiers
+	YouTubeChannel(string name, string ownername) { //Constructor, have no return-type
 		Name = name;
 		OwnerName = ownername;
 		SubscribersCount = 0;
 	}
-	void GetInfo() {
+	void GetInfo() { // METHOD
 		cout << "Name:" << Name << endl;
 		cout << "Owner Name: " << OwnerName << endl;
 		cout << "Subscribers: " << SubscribersCount << endl;
@@ -22,29 +22,29 @@ public:
 			cout << videoTitle << endl;
 		}
 	}
-	void Subscribe() {
+	void Subscribe() { // METHOD
 		SubscribersCount++;
 	}
-	void UnSubscribe() {
-		if(SubscribersCount>0)
+	void UnSubscribe() { // METHOD
+		if (SubscribersCount > 0)
 			SubscribersCount--;
 	}
-	void PublishVideo(string Titles) {
+	void PublishVideo(string Titles) { // METHOD
 		PublishedVideoTitles.push_back(Titles);
 	}
 };
 
 int main() {
-	YouTubeChannel ytChannel("code beauty", "saldina"), ytChannel2("Amy Sing's", "Amy");
+	YouTubeChannel ytChannel("code beauty", "saldina"), ytChannel2("Amy Sing's", "Amy"); // Objects of class
 	ytChannel.PublishVideo("c++ for beginners video 1");
 	ytChannel.PublishVideo("html & css video 1");
 	ytChannel.PublishVideo("c++ oop video 1");
-	ytChannel.UnSubscribe();
+	ytChannel.UnSubscribe(); //  Method Call
 	ytChannel.GetInfo();
 	ytChannel2.PublishVideo("Kaun Tujhe - Cover");
 	ytChannel2.PublishVideo("Thodi Der - Cover");
 	ytChannel2.GetInfo();
-	
+
 
 	system("pause>0");
 }
