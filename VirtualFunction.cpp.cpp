@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//Poymorphism of class, Virtual and Pure Virtual function
+//Polymorphism of class, Virtual and Pure Virtual function
 
 class Instrument { //Abstract Base Class (Abstract Class :- A class that has atleast One Pure Virtual Function
 public:
